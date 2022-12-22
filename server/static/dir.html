@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{.CurrentPath}} - Lily</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  </head>
+  <body>
+    <a href="/logout">Logout</a> - <a href="/drive">Home</a>
+
+    <h1>{{.CurrentPath}} - Index</h1>
+    <hr>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Last Editor</th>
+            <th>Last Edited</th>
+        </tr>
+        <tr>
+            <td><a href="/{{.Previous}}">Previous Directory</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        {{range .Dirs}} 
+        <tr>
+          <td><a href="{{.Path}}">{{.Name}}</a></td>
+          <td>Directory</td>
+          <td>{{.LastEditor}}</td>
+          <td>{{.LastEdited}}</td>
+        </tr>
+        {{end}}
+        {{range .Files}} 
+        <tr>
+          <td><a href="{{.Path}}" download>{{.Name}}</a></td>
+          <td>File</td>
+          <td>{{.LastEditor}}</td>
+          <td>{{.LastEdited}}</td>
+        </tr>
+        {{end}}
+      </table>
+    </ul>
+  </body>
+</html>

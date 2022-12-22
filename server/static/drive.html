@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drives - Lily</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+
+    <h1>{{.Name}} - Index</h1>
+    <hr>
+
+    <table>
+      <tr>
+          <th>Name</th>
+          <th>Type</th>
+      </tr>
+      {{range .Drives}} 
+      <tr>
+        <td><a href="{{.}}">{{.}}</a></td>
+        <td>Drive</td>
+      </tr>
+      {{end}}
+    </table>
+  </body>
+
+  <p>Powered by Lily v{{.Version}} - {{.Server}}</p>
+</html>
