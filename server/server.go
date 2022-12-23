@@ -103,7 +103,7 @@ func driveHandler(w http.ResponseWriter, r *http.Request) {
 	username, sessionID, err := getAuth(r)
 	if err != nil {
 		// Display auth page.
-		http.Redirect(w, r, "/login?redirect=/drive", http.StatusUnauthorized)
+		http.Redirect(w, r, "/login?redirect=/drive", http.StatusFound)
 		return
 	}
 	bytes, err := sessionID.MarshalBinary()
